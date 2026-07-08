@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.catalog-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.catalog-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 400;
+    color: #2b3a67;
+    margin-bottom: 40px;
+}
+
+/* ✅ ИСПРАВЛЕНО: добавлены justify-items: center */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-items: center; /* ← ГЛАВНОЕ ИЗМЕНЕНИЕ */
+}
+
+/* ✅ ИСПРАВЛЕНО: добавлена ширина 100% */
+.product-card {
+    background-color: #f4f5f9;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    box-sizing: border-box;
+    width: 100%; /* ← ВАЖНО: чтобы карточка занимала всю ячейку */
+    max-width: 380px; /* Опционально, чтобы не была слишком широкой */
+}
+
+.product-img-wrap {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 8px 8px 8px;
+}
+
+.product-badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #a3aebb;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.product-name {
+    font-size: 18px;
+    color: #3c496a;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.product-desc {
+    font-size: 13px;
+    color: #626d7a;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.product-ingredients {
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.product-ingredients h3 {
+    font-size: 13px;
+    color: #626d7a;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.product-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-ingredients li {
+    font-size: 13px;
+    color: #626d7a;
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 4px;
+    list-style: none;
+}
+
+.product-ingredients li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #626d7a;
+    border-radius: 50%;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.price-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.price-value,
+.price {
+    font-size: 18px;
+    font-weight: 400;
+    color: #4a5568;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
